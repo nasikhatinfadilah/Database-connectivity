@@ -55,8 +55,8 @@ public class InputDataMahasiswa extends JFrame {
             koneksi = DriverManager.getConnection(DBurl,
                       DBusername, DBpassword);
             statement = koneksi.createStatement();
-            statement.executeUpdate("insert into mahasiswa values("+ tfNim.getText() + "," +  tfNama.getText() + "," 
-             + tfAlamat.getText() + ")"); 
+            String sql = "INSERT INTO mahasiswa VALUES('"+tfNim.getText()+"','"+tfNama.getText()+"','"+tfAlamat.getText()+"')";
+            statement.executeUpdate(sql); 
             JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan!", "Hasil",JOptionPane.INFORMATION_MESSAGE);            
             statement.close();
             koneksi.close();
